@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  confluenceDB:
+    build: ./psql-docker
+    image: confluencedb
+    networks:
+      - confluence-network
+    tty: true
+  confluenceUI:
+    build: ./confluence-docker
+    image: confluenceui
+    networks:
+      - confluence-network
+    depends_on:
+      - confluenceDB
+    volumes:
+      - "var_confluence:/var/atlassian/confluence"
+      - "opt_confluence:/opt/atlassian/confluence"
+    ports:
+      - "8888:8090"
+    tty: true
+
+networks:
+  confluence-network:
+
+volumes:
+  var_confluence:
+  opt_confluence:
