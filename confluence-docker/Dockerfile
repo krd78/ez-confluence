@@ -24,10 +24,7 @@ RUN mkdir -p "${INSTALL_DIR}" && \
 RUN chown daemon:daemon "${JAVA_CACERTS}"
 
 # Give the correct rights to the installation directory
-RUN chmod -R 700 "${INSTALL_DIR}/conf" && chown -R daemon:daemon "${INSTALL_DIR}/conf" && \
-    chmod -R 700 "${INSTALL_DIR}/temp" && chown -R daemon:daemon "${INSTALL_DIR}/temp" && \
-    chmod -R 700 "${INSTALL_DIR}/logs" && chown -R daemon:daemon "${INSTALL_DIR}/logs" && \
-    chmod -R 700 "${INSTALL_DIR}/work" && chown -R daemon:daemon  "${INSTALL_DIR}/work"
+RUN chmod -R 700 "${INSTALL_DIR}" && chown -R daemon:daemon "${INSTALL_DIR}"
 
 # Configure the confluence HOME in properties
 RUN echo -e "\nconfluence.home=$CONF_DIR" >> "${INSTALL_DIR}/confluence/WEB-INF/classes/confluence-init.properties"

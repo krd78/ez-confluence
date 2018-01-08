@@ -56,7 +56,6 @@ while [ -n "$1" ]; do
         ;;
         *)
             DOCKER_IMG="$1"
-            shift
         ;;
     esac
     shift
