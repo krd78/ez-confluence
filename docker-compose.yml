@@ -4,6 +4,7 @@ services:
   confluenceDB:
     build: ./psql-docker
     image: confluencedb
+    user: postgres
     networks:
       - confluence-network
     entrypoint:
@@ -18,6 +19,7 @@ services:
   confluenceUI:
     build: ./confluence-docker
     image: confluenceui
+    user: daemon
     networks:
       - confluence-network
     depends_on:
