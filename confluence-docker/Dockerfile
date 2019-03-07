@@ -2,7 +2,7 @@ FROM openjdk:8-alpine
 
 ENV CONF_DIR            /var/atlassian/confluence
 ENV INSTALL_DIR         /opt/atlassian/confluence
-ENV CONFLUENCE_VERSION  6.6.1
+ENV CONFLUENCE_VERSION  6.14.2
 
 ENV JAVA_CACERTS        $JAVA_HOME/jre/lib/security/cacerts
 ENV CERTIFICATE         $CONF_DIR/certificate
